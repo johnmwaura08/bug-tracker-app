@@ -1,0 +1,17 @@
+{
+  "name": "bugtracker-project",
+  "version": "1.0.0",
+  "description": "bug-tracker CRUD software",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.0.1",
+    "mongoose": "^5.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd client && npm start\" \"cd server && npx nodemon start\""
+  },
+  "author": "john mwaura",
+  "license": "MIT"
+}
