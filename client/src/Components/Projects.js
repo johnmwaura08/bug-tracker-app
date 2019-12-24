@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+
 class Projects extends React.Component{
 
                 constructor(props){
@@ -12,10 +13,14 @@ class Projects extends React.Component{
                                 frontEnd:'',
                                 backEnd: '',
                                 user:'',
-                                textArea:'',
+                                comments:'',
+                             
 
                             } 
                 }
+
+            
+
                 handleTitle = (event) => {
                     this.setState({
                         title : event.target.value
@@ -38,20 +43,24 @@ class Projects extends React.Component{
                 }
                 handleComments = (event) => {
                     this.setState({
-                        textArea : event.target.value
+                        comments : event.target.value
                     })
                 }
                 handleSubmit = (event) => {
-                    alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.textArea} `)
+                    alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.comments} `)
                     event.preventDefault()
                 }
+
+
+              
+
 
             render() {
                 return(
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label for="projectTitle">Title</Label>
-                            <Input value={this.state.title} onChange={this.handleTitle} type="text" name="title" id="projecttitle" placeholder="Project Name" />
+                            <Input value={this.state.title} onChange={this.handleTitle} type="text" name="title" id="title" placeholder="Project Name" />
                         </FormGroup>
                         
                         <FormGroup>
@@ -76,7 +85,7 @@ class Projects extends React.Component{
                     
                         <FormGroup>
                             <Label for="exampleText">Comments</Label>
-                            <Input value={this.state.textArea} onChange={this.handleComments} type="textarea" name="textArea" id="textArea" />
+                            <Input value={this.state.comments} onChange={this.handleComments} type="textarea" name="comments" id="comments" />
                         </FormGroup>
                         <Button>Submit</Button>
                     </Form>
