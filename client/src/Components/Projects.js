@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-
+import axios from 'axios';
 class Projects extends React.Component{
 
                 constructor(props){
@@ -16,9 +16,17 @@ class Projects extends React.Component{
                                 comments:'',
                              
 
-                            } 
+                        }
+
                 }
 
+
+
+                componentDidMount(){
+
+                    this.handleSubmit();
+            
+            }
             
 
                 handleTitle = (event) => {
@@ -47,8 +55,22 @@ class Projects extends React.Component{
                     })
                 }
                 handleSubmit = (event) => {
-                    alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.comments} `)
-                    event.preventDefault()
+                    // alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.comments} `)
+
+
+                    // event.preventDefault()
+
+                        axios.post('/projects', 
+                            `${this.state} `
+                        )
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+
                 }
 
 
