@@ -55,13 +55,21 @@ class Projects extends React.Component{
                     })
                 }
                 handleSubmit = (event) => {
+                    //  event.preventDefault();
                     // alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.comments} `)
-
-
-                    // event.preventDefault()
-
+        
+                        const {title, frontEnd, backEnd, user, comments} = this.state;
+                   
+                        const project = {
+                            title,
+                            frontEnd,
+                            backEnd,
+                            user,
+                            comments,
+                         
+                        };
                         axios.post('/projects', 
-                            `${this.state} `
+                            project
                         )
                         .then(function (response) {
                             console.log(response);

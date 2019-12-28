@@ -4,11 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var projectsRouter = require('./routes/projects')
 var app = express();
+app.use(
+  cors({
+    origin: 'http://localhost:4500',
+    credentials: true,
+  })
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +34,7 @@ app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
 
 
-mongoose.connect('mongodb://localhost/study', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/bugtracker', {useNewUrlParser: true, keepAlive: 1});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

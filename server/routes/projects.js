@@ -26,18 +26,24 @@ var mongoose = require('mongoose');
 const project = require('../models/project')
 
 /* GET home page. */
-const projects = ['the good project', 'the best project', 'this projects']
+// const projects = ['the good project', 'the best project', 'this projects']
+let allProjects = [];
 router.get('/', function(req, res, next) {
-    res.send(projects);
-   const allProjects = project.find
 
-   console.log(allProjects);
+    res.writeHead(200, {
+        'Content-Type': 'application/json',
+      });
+      console.log('ALLPROJECTS:',JSON.stringify(allProjects));
+    res.send(JSON.stringify(allProjects));
+//    const allProjects = project.find
+
+//    console.log(allProjects);
 });
 
 
 module.exports = router;
 
-router.post('/',function(req,res,next){
+router.post('/projects',function(req,res,next){
     
 
             const newProject = new project(req.body);
@@ -57,4 +63,7 @@ router.post('/',function(req,res,next){
             });
 
 
-})
+            allProjects.push(newProject);
+            console.log(allProjects)
+
+});
