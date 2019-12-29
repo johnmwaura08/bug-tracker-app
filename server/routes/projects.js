@@ -1,54 +1,45 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-// var Schema = mongoose.Schema
 
-// var projectSchema = new Schema({
-
-
-// title:String,
-// frontEnd: String,
-// backEnd: String,
-// user: String,
-// comments: String,
-
-
-
-
-
-
-
-
-
-// });
-
-// var project = mongoose.model('project',projectSchema);
 const project = require('../models/project')
 
 /* GET home page. */
 // const projects = ['the good project', 'the best project', 'this projects']
-let allProjects = [];
+
 router.get('/', function(req, res, next) {
 
-    res.writeHead(200, {
-        'Content-Type': 'application/json',
-      });
-      console.log('ALLPROJECTS:',JSON.stringify(allProjects));
-    res.send(JSON.stringify(allProjects));
-//    const allProjects = project.find
+  project.find()
+        .then(projects => res.json(projects))
+        .catch(err => res.status(400).json('Error: ' + err));
 
-//    console.log(allProjects);
 });
 
 
-module.exports = router;
 
 router.post('/projects',function(req,res,next){
+
+    const title = req.body.title;
+    const frontEnd= req.body.frontEnd;
+    const backEnd=req.body.backEnd;
+    const user=req.body.user;
+    const  comments=req.body.user
+
+
     
 
-            const newProject = new project(req.body);
+             const newProject = new project({
+                 title,
+                frontEnd,
+                backEnd,
+                user,
+                comments
 
-            console.log(req.body);
+
+
+            });
+
+          
             newProject.save(function(err,results){
                         if(err){
                             console.log("Error trying to save document"+ req.body);
@@ -63,7 +54,10 @@ router.post('/projects',function(req,res,next){
             });
 
 
-            allProjects.push(newProject);
-            console.log(allProjects)
+            
+            console.log(newProject)
 
 });
+
+
+module.exports = router;
