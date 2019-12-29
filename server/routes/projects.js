@@ -1,15 +1,14 @@
 var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
+const router = express.Router();
 
-const project = require('../models/project')
+
+let Project = require('../models/project')
 
 /* GET home page. */
 // const projects = ['the good project', 'the best project', 'this projects']
+router.route('/').get((req,res) => {
 
-router.get('/', function(req, res, next) {
-
-  project.find()
+  Project.find()
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json('Error: ' + err));
 
@@ -17,18 +16,18 @@ router.get('/', function(req, res, next) {
 
 
 
-router.post('/projects',function(req,res,next){
+router.route('/add).post((req, res) => {
 
     const title = req.body.title;
     const frontEnd= req.body.frontEnd;
     const backEnd=req.body.backEnd;
     const user=req.body.user;
-    const  comments=req.body.user
+    const  comments=req.body.user;
 
 
     
 
-             const newProject = new project({
+    const newProject = new project({
                  title,
                 frontEnd,
                 backEnd,
@@ -40,18 +39,12 @@ router.post('/projects',function(req,res,next){
             });
 
           
-            newProject.save(function(err,results){
-                        if(err){
-                            console.log("Error trying to save document"+ req.body);
-                            res.status(404);
-                        }
-                        else {
-                        res.status(201).json({
-                            status: "Project added"
-                        });
-                    }     
+            newProject.save()
+              .then(() => res.json(" Project added!"))
+              .catch(err => res.status(400).json('Errpr: ' + err));
+                    
 
-            });
+           
 
 
             
