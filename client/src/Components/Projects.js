@@ -58,16 +58,17 @@ class Projects extends React.Component{
                     //  event.preventDefault();
                     // alert(`${this.state.title} ${this.state.frontEnd} ${this.state.backEnd} ${this.state.user} ${this.state.comments} `)
         
-                        const {title, frontEnd, backEnd, user, comments} = this.state;
+                        // const {title, frontEnd, backEnd, user, comments} = this.state;
                    
                         const project = {
-                            title,
-                            frontEnd,
-                            backEnd,
-                            user,
-                            comments,
+                            title:this.state.title,
+                            frontEnd: this.state.frontEnd,
+                            backEnd: this.state.backEnd,
+                            user: this.state.user,
+                            comments: this.state.comments,
                          
                         };
+                        console.log(project)
                         axios.post('/projects', 
                             project
                         )
