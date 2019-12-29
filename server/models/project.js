@@ -20,6 +20,6 @@ comments: String,
 
 });
 
-var project = mongoose.model('project',projectSchema);
+var Project = mongoose.model('project',projectSchema);
 
-module.exports = project;
+module.exports = Project;
