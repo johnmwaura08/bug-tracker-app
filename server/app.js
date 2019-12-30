@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 
-
+require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var projectsRouter = require('./routes/projects')
@@ -33,8 +33,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
 
+const uri = process.env.ATLAS_URI;
 
-mongoose.connect('mongodb://localhost:27017/bugtracker', {useNewUrlParser: true, keepAlive: 1});
+mongoose.connect(uri, {useNewUrlParser: true, keepAlive: 1});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
