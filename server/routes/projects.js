@@ -16,41 +16,44 @@ router.route('/').get((req,res) => {
 
 
 
-router.route('/add).post((req, res) => {
-
-    const title = req.body.title;
-    const frontEnd= req.body.frontEnd;
-    const backEnd=req.body.backEnd;
-    const user=req.body.user;
-    const  comments=req.body.user;
-
-
-    
-
-    const newProject = new project({
-                 title,
-                frontEnd,
-                backEnd,
-                user,
-                comments
+router.route('/add').post((req,res) => {
+  const title = req.body.title;
+  const frontEnd= req.body.frontEnd;
+  const backEnd=req.body.backEnd;
+  const user=req.body.user;
+  const  comments=req.body.comments;
 
 
+  
 
-            });
+  const newProject = new Project({
+               title,
+              frontEnd,
+              backEnd,
+              user,
+              comments
+
+
+
+          });
+
+        
+          newProject.save()
+            .then(() => res.json(" Project added!"))
+            .catch(err => res.status(400).json('Errpr: ' + err));
+                  
+
+         
+
 
           
-            newProject.save()
-              .then(() => res.json(" Project added!"))
-              .catch(err => res.status(400).json('Errpr: ' + err));
-                    
-
-           
-
-
-            
-            console.log(newProject)
-
+          console.log(newProject)
 });
+
+
+  
+
+
 
 
 module.exports = router;
