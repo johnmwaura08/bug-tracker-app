@@ -73,13 +73,28 @@ class Bugs extends React.Component {
     loadProjects() {
         axios({
             method: 'get',
-            url: "/projects",
+            url: 'http://localhost:6050/projects/',
         })
-            .then((res) => {
-                this.setState({ projects_array: res.data })
-                console.log(res)
+            .then((response) => {
+                // this.setState({ projects_array: res.data})
+                // console.log(res)
+
+
+                if (response.data.length > 0) {
+                    this.setState({
+                      projects_array: response.data.map(project => project.title),
+                      title: response.data[0].title
+                    })
+                  }
+
+
+
+
+
+
+            
             })
-            .catch((res) => console.error(res.message))
+            .catch((response) => console.error(response.message))
 
     }
 
@@ -117,6 +132,12 @@ class Bugs extends React.Component {
 
                     >
                       {this.renderProjects()}
+
+
+
+
+
+
                     
                        
                     </Input>
