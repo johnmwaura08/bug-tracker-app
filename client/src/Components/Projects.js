@@ -24,7 +24,7 @@ class Projects extends React.Component{
 
                 componentDidMount(){
 
-                    this.handleSubmit();
+                    // this.handleSubmit();
             
             }
             
@@ -67,18 +67,22 @@ class Projects extends React.Component{
                             user: this.state.user,
                             comments: this.state.comments,
                          
-                        };
-                        console.log(project)
-                        axios.post('/projects', 
+                        }
+                        console.log(project);
+
+
+                        axios.post('http://localhost:6050/projects/add', 
                             project
                         )
-                        .then(function (response) {
-                            console.log(response);
-                        })
+                        .then(res => console.log(res.data))
+                        
                         .catch(function (error) {
                             console.log(error);
                         });
 
+
+                        
+                        window.location = '/';
 
                 }
 
