@@ -14,7 +14,7 @@ var projectsRouter = require('./routes/projects')
 var app = express();
 app.use(
   cors({
-    origin: 'http://localhost:4500',
+    origin: 'http://localhost:4700',
     credentials: true,
   })
 );
