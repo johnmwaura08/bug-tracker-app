@@ -2,9 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import React, { Component } from 'react'
 
- class Users extends Component {
+
+ class Users extends React.Component {
 
     constructor(props){
         super(props);
@@ -91,7 +91,7 @@ import React, { Component } from 'react'
 
 
 
-
+                <Button>Submit</Button>
            </Form>
 
 
