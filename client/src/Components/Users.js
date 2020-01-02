@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import React, { Component } from 'react'
 
- class Users extends React.Component {
+ class Users extends Component {
 
     constructor(props){
         super(props);
@@ -47,6 +47,19 @@ import React, { Component } from 'react'
         this.setState({
             contact: event.target.value
         })
+    };
+
+    handleSubmit= event => {
+        event.preventDefault();
+
+        const user = {
+            username: this.state.username,
+            email: this.state.email,
+            occupation: this.state.occupation,
+            contact: this.state.contact
+        }
+        console.log(user)
+
     }
 
 
@@ -55,6 +68,7 @@ import React, { Component } from 'react'
     render() {
         return (
            <Form onSubmit={this.handleSubmit}>
+
                     <FormGroup>
                         <Label for ="username">Name</Label>
                         <Input type="text" name ="username" id="username" placeholder =" employee name" value={this.state.username} onChange={this.handleUserName}/>
@@ -65,16 +79,20 @@ import React, { Component } from 'react'
                     </FormGroup>
 
             
-                <FormGroup>
+                   <FormGroup>
                         <Label for="Occupation">Occupation</Label>
                         <Input type="text" name="occupation" id="occupation" placeholder="job title" value={this.state.occupation} onChange={this.handleOccupation}/>
-                </FormGroup>
-                <FormGroup>
+                   </FormGroup>
+                  <FormGroup>
                         <Label for="contact">Contact</Label>
                         <Input type="text" name="contact" id="contact" placeholder="phone number"  value={this.state.contact} onChange={this.handleContact}/>
-                </FormGroup>
+                   </FormGroup>
 
-            <Form/>
+
+
+
+
+           </Form>
 
 
 

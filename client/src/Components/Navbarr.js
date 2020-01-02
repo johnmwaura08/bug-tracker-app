@@ -79,7 +79,16 @@ const Navbarr = props => {
                 )}
                 >ADD NEW BUG</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>ADD NEW USER</DropdownItem>
+                <DropdownItem
+                  tag={props =>(
+                      <RRNavLink
+                      to="/users/new"
+                      />
+
+                  )}
+                
+                
+                >ADD NEW USER</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
