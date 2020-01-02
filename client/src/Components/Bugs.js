@@ -13,7 +13,7 @@ class Bugs extends React.Component {
             deadline: "",
             bugtype: "",
             status: "",
-            textArea: "",
+            comments: "",
             projects_array: [],
         };
     }
@@ -57,7 +57,7 @@ class Bugs extends React.Component {
 
     handleComments = event => {
         this.setState({
-            textArea: event.target.value
+            comments: event.target.value
         });
 
     };
@@ -196,11 +196,11 @@ class Bugs extends React.Component {
                 <FormGroup>
                     <Label for="exampleText">Comments</Label>
                     <Input
-                        value={this.state.textArea}
+                        value={this.state.cooments}
                         onChange={this.handleComments}
                         type="textarea"
-                        name="textArea"
-                        id="textArea"
+                        name="comments"
+                        id="comments"
                     />
                 </FormGroup>
                 <Button>Submit</Button>
