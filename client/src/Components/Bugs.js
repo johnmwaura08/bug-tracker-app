@@ -117,7 +117,7 @@ class Bugs extends React.Component {
                         type="text"
                         name="title"
                         id="projecttitle"
-                        placeholder="Project Name"
+                        placeholder="Bug Name"
                     />
                 </FormGroup>
 
