@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import {
   Link as RRNavLink,
-  BrowserRouter as Router,
-  Switch
+  
 } from "react-router-dom";
 
 
@@ -38,13 +37,13 @@ const Navbarr = props => {
         expand="lg"
       >
         <NavbarBrand className="mr-7" href="/">
-          BUGZY
+          BugLog
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">HOME</NavLink>
+              <NavLink href="/">ABOUT</NavLink>
             </NavItem>
 
             <UncontrolledDropdown nav inNavbar>
@@ -64,7 +63,7 @@ const Navbarr = props => {
                   ADD NEW BUG
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem tag={props => <RRNavLink to="/users/new" />}>
+                <DropdownItem tag={props => <RRNavLink to="/users/new" {...props}/>}>
                   ADD NEW USER
                 </DropdownItem>
               </DropdownMenu>
@@ -76,14 +75,14 @@ const Navbarr = props => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem 
-                tag={props=> <RRNavLink to ="/projectreports/new"/>}
+                tag={props=> <RRNavLink to ="/projectreports/new" {...props}/>}
               >VIEW PROJECTS</DropdownItem>
                 <DropdownItem
-                tag={props => <RRNavLink to ="/bugreports/new"/>}
+                tag={props => <RRNavLink to ="/bugreports/new" {...props}/>}
                 >VIEW BUGS</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem
-                tag={props=> <RRNavLink to ="/userreports/new" />}
+                tag={props=> <RRNavLink to ="/userreports/new" {...props}/>}
                 >VIEW USERS</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
