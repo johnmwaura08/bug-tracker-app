@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Link as RRNavLink, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  Link as RRNavLink,
+  BrowserRouter as Router,
+  Switch
+} from "react-router-dom";
 
 
-import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
 import {
   Collapse,
   Navbar,
@@ -17,7 +20,6 @@ import {
   DropdownItem,
   NavbarText
 } from "reactstrap";
-
 
 const Navbarr = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,45 +52,21 @@ const Navbarr = props => {
                 DASHBOARD
               </DropdownToggle>
               <DropdownMenu right className="nav-links">
-           
-                
-                      {/* <IndexLinkContainer exact to ="/projects" > */}
-                  <DropdownItem
-                    tag={props => (
-                      <RRNavLink
-                        to="/projects/new"
-                        {...props}
-                       
-                      />
-                    )}
-                  >
-                    ADD NEW PROJECT
-                  </DropdownItem>
-                  {/* </IndexLinkContainer> */}
-                 
-                
-              
+                <DropdownItem
+                  tag={props => <RRNavLink to="/projects/new" {...props} />}
+                >
+                  ADD NEW PROJECT
+                </DropdownItem>
 
                 <DropdownItem
-                 tag={props => (
-                  <RRNavLink
-                    to="/bugs/new"
-                    {...props}
-                   
-                  />
-                )}
-                >ADD NEW BUG</DropdownItem>
+                  tag={props => <RRNavLink to="/bugs/new" {...props} />}
+                >
+                  ADD NEW BUG
+                </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem
-                  tag={props =>(
-                      <RRNavLink
-                      to="/users/new"
-                      />
-
-                  )}
-                
-                
-                >ADD NEW USER</DropdownItem>
+                <DropdownItem tag={props => <RRNavLink to="/users/new" />}>
+                  ADD NEW USER
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
@@ -97,10 +75,16 @@ const Navbarr = props => {
                 REPORTS
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>VIEW PROJECTS</DropdownItem>
-                <DropdownItem>VIEW BUGS</DropdownItem>
+                <DropdownItem 
+                tag={props=> <RRNavLink to ="/projectreports/new"/>}
+              >VIEW PROJECTS</DropdownItem>
+                <DropdownItem
+                tag={props => <RRNavLink to ="/bugreports/new"/>}
+                >VIEW BUGS</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>VIEW USERS</DropdownItem>
+                <DropdownItem
+                tag={props=> <RRNavLink to ="/userreports/new" />}
+                >VIEW USERS</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
