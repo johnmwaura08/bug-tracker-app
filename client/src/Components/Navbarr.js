@@ -28,7 +28,7 @@ const Navbarr = props => {
     <div>
       <Navbar
         style={{
-          backgroundColor: "#39ff14",
+          backgroundColor: "#00bfff",
           alignItems: "center",
           display: "flex"
         }}
