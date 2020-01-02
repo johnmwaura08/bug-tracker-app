@@ -1,34 +1,40 @@
 import React from "react";
-import logo from "./logo.svg";
+
 
 import Projects from "./Components/Projects";
 import Navbarr from "./Components/Navbarr";
 import Bugs from "./Components/Bugs"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Users from "./Components/Users";
+import About from "./Components/About";
+import BugReports from"./Components/BugReports";
+import ProjectReports from"./Components/ProjectReports";
+import UserReports from "./Components/UserReports";
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbarr />
         <Switch> 
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={About} />
           <Route path="/projects/new" component={Projects} />
           <Route path="/bugs/new" component={Bugs} />
+          <Route path="/users/new" component={Users} />
+          <Route path ="/projectreports/new" component={ProjectReports} />
+          <Route path="/bugreports/new" component ={BugReports} />
+          <Route path="/userreports/new" component={UserReports} />
+
+
         </Switch>
 
 
        
-        {/* <Projects/> */}
+       
       </div>
     </Router>
   );
 }
 
-const Home = () => (
-  <div>
-    <h1>Home Page</h1>
-  </div>
-);
+
 
 export default App;
