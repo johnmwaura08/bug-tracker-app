@@ -10,6 +10,7 @@ import About from "./Components/About";
 import BugReports from"./Components/BugReports";
 import ProjectReports from"./Components/ProjectReports";
 import UserReports from "./Components/UserReports";
+import ProjectReportstest from "./Components/ProjectReportstest"
 function App() {
   return (
     <Router>
@@ -20,7 +21,7 @@ function App() {
           <Route path="/projects/new" component={Projects} />
           <Route path="/bugs/new" component={Bugs} />
           <Route path="/users/new" component={Users} />
-          <Route path ="/projectreports/new" component={ProjectReports} />
+          <Route path ="/projectreports/new" component={ProjectReportstest} />
           <Route path="/bugreports/new" component ={BugReports} />
           <Route path="/userreports/new" component={UserReports} />
 
