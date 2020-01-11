@@ -9,7 +9,7 @@ export default class ProjectReportstest extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      projects: []
+      projects_array: []
     };
   }
 
@@ -17,7 +17,7 @@ export default class ProjectReportstest extends Component {
     axios.get('http://localhost:6050/projects/')
       .then(res => {
         this.setState({
-          projects : res.data
+          projects_array : res.data
         });
       })
       .catch((error) => {
@@ -26,8 +26,8 @@ export default class ProjectReportstest extends Component {
   }
 
   DataTable() {
-    return this.state.projects.map((res, i) => {
-      return <ProjectsTable obj={res} key={i} />;
+    return this.state.projects_array.map((res, i) => {
+      return <ProjectsTable obj={res} number={i} key={i} />;
     });
   }
 
@@ -37,6 +37,7 @@ export default class ProjectReportstest extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
+            <th> #</th>
             <th>TITLE</th>
             <th>FRONT-END:</th>
             <th>BACK-END</th>
