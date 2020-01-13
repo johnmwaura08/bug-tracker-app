@@ -22,7 +22,8 @@ class Bugs extends React.Component {
 
         this.loadProjects();
 
-}
+
+        };
 
 
     handleTitle = event => {
@@ -63,10 +64,35 @@ class Bugs extends React.Component {
     };
 
     handleSubmit = event => {
-        alert(
-            `${this.state.title} ${this.state.project} ${this.state.deadline} ${this.state.bugtype} ${this.state.status} ${this.state.textArea} `
-        );
+
         event.preventDefault();
+
+
+        const bug = {
+            title:this.state.title,
+            project: this.state.project,
+            deadline: this.state.deadline,
+            bugtype: this.state.bugtype,
+            status: this.state.status,
+            comments: this.state.comments,
+         
+        }
+        console.log(bug);
+
+
+        axios.post('http://localhost:6050/bugs/add', 
+            bug
+        )
+        .then(res => console.log(res.data))
+        
+        .catch(function (error) {
+            console.log(error);
+        });
+
+
+        
+        window.location = '/';
+
     };
 
 
@@ -76,8 +102,7 @@ class Bugs extends React.Component {
             url: 'http://localhost:6050/projects/',
         })
             .then((response) => {
-                // this.setState({ projects_array: res.data})
-                // console.log(res)
+
 
 
                 if (response.data.length > 0) {
