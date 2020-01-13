@@ -3,22 +3,6 @@ import React, { useState, useEffect }from 'react'
 import { Table } from 'reactstrap';
 import axios from 'axios';
 
-// export class ProjectReports extends Component {
-//     constructor(props){
-//         super(props);
-//         this.state={
-//             projects_array:[]
-//         }
-//     }
-
-//     componentDidMount(){
-
-//     }
-
-
-//     render() {
-//         return (
-            
 
 
 
