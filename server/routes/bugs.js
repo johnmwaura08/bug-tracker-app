@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-let Bug = require('../models/bug')
+let Bug = require('../models/bug');
+let moment = require('moment');
 /* GET bug listing. */
 router.route('/').get((req,res)=>{
     Bug.find()
@@ -18,7 +19,7 @@ router.route('/add').post((req,res)=>{
 
 const title = req.body.title;
 const project = req.body.project;
-const deadline = Date.parse(req.body.deadline);
+const deadline = moment(date).format('LLLL')(req.body.deadline);
 const bugtype = req.body.bugtype;
 const status = req.body.status;
 const comments = req.body.comments
