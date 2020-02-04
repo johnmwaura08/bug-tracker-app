@@ -26,7 +26,7 @@ export default class UserReports extends Component {
   }
 
   DataTable() {
-    return this.state.projects_array.map((res, i) => {
+    return this.state.users_array.map((res, i) => {
       return <UsersTable obj={res} number={i} key={i} />;
     });
   }
