@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from 'axios';
-
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
 
 class Bugs extends React.Component {
 
@@ -10,7 +11,7 @@ class Bugs extends React.Component {
         this.state = {
             title: "",
             project: "",
-            deadline: "",
+            deadline: new Date(),
             bugtype: "",
             status: "",
             comments: "",
@@ -38,9 +39,9 @@ class Bugs extends React.Component {
         });
     };
 
-    handleDeadLine = event => {
+    handleDeadLine = date => {
         this.setState({
-            deadline: event.target.value
+            deadline: date
         });
     };
 
@@ -169,15 +170,29 @@ class Bugs extends React.Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="Deadline">Deadline</Label>
-                    <Input
+                    <Label for="Deadline" className="pr-9">Deadline</Label>
+                    {/* <Input
                         value={this.state.deadline}
                         onChange={this.handleDeadLine}
                         type="text"
                         name="deadline"
                         id="deadline"
                         placeholder="deadline due?"
-                    />
+
+                                                    
+                        
+                        <DatePicker
+                                selected={this.state.deadline}
+                                onChange={this.handleDeadLine}
+                             />
+                    /> */}
+                      
+                    <DatePicker
+                                selected={this.state.deadline}
+                                onChange={this.handleDeadLine}
+                             />
+
+
 
                 </FormGroup>
 
