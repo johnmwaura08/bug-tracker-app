@@ -59,6 +59,18 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
             contact: this.state.contact
         }
         console.log(user)
+        axios.post('http://localhost:6050/users/add', 
+                            user
+                        )
+                        .then(res => console.log(res.data))
+                        
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+
+                        
+                        window.location = '/';
 
     }
 
