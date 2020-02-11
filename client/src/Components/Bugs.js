@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from 'axios';
 import DatePicker from 'react-datepicker'
@@ -81,14 +81,13 @@ class Bugs extends React.Component {
         console.log(bug);
 
 
-        axios.post('http://localhost:6050/bugs/add', 
-            bug
-        )
-        .then(res => console.log(res.data))
+        axios.post('http://localhost:6050/bugs/add', bug)
         
-        .catch(function (error) {
-            console.log(error);
-        });
+             .then(res => console.log(res.data))
+        
+                 .catch(function (error) {
+                         console.log(error);
+                 });
 
 
         
@@ -236,7 +235,7 @@ class Bugs extends React.Component {
                 <FormGroup>
                     <Label for="exampleText">Comments</Label>
                     <Input
-                        value={this.state.cooments}
+                        value={this.state.comments}
                         onChange={this.handleComments}
                         type="textarea"
                         name="comments"
@@ -250,3 +249,8 @@ class Bugs extends React.Component {
 }
 
 export default Bugs;
+
+
+
+
+
