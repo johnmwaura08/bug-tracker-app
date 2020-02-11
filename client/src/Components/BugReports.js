@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import BugsTable from './BugsTable'
 
 
-export default class ProjectReportstest extends Component {
+export default class BugReports extends Component {
 
   constructor(props) {
     super(props)
