@@ -13,10 +13,6 @@ export default class ProjectsTable extends Component {
                 <td>{this.props.obj.frontEnd}</td>
                 <td>{this.props.obj.backEnd}</td>
                 <td>
-                    {/* <Link className="edit-link" to={"/edit-student/" + this.props.obj._id}>
-                        Edit
-                    </Link>
-                    <Button size="sm" variant="danger">Delete</Button> */}
                 </td>
             </tr>
         );
