@@ -43,7 +43,8 @@ export default class BugReports extends Component {
             <th>DEADLINE</th>
             <th>BUGTYPE</th>
             <th>STATUS</th>
-
+            <th>OPERATION</th>
+            {/* <th> <FontAwesomeIcon icon  ={faEdit}/></th> */}
 
 
           </tr>
