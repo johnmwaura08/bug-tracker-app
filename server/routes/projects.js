@@ -51,6 +51,40 @@ router.route('/add').post((req,res) => {
 });
 
 
+route.route('/: id').get((req,res)=> {
+  Project.findById(req.params.id)
+    .then(project => res.json(project))
+    .catch(err => res.status(400).json('Error: + err'))
+});
+
+router.route('/update/: id').post((req,res)=> {
+  Project.findById(req.params.id)
+    .then(project => {
+
+      const title = req.body.title;
+      const frontEnd= req.body.frontEnd;
+    const backEnd=req.body.backEnd;
+    const user=req.body.user;
+    const  comments=req.body.comments;
+
+      project.save()
+            .then(() => res.json('Project Updated'))
+            .catch(err => res.status(400).json('Error: ' + err));
+
+    })
+
+     .catch(err => res.status(400).json('Error: ' + err));
+
+});
+
+
+router.route('/: id').delete((req,res)=> {
+  Project.findByIdAndDelete(req.params.id)
+      .then(()=> res.json('Project deleted'))
+      .catch(err => res.status(400).json('Error: ' + err));
+      
+})
+
   
 
 
