@@ -24,6 +24,14 @@ export default class ProjectReportstest extends Component {
         console.log(error);
       })
   }
+  deleteProject(id){
+    axios.delete('htttp://localhost:6050/projects/'+ id)
+      .then(response => { console.log(response.data)});
+
+    this.setState({
+      projects: this.state.projects_array.filter(el => el._id !== id)
+    })
+  }
 
   DataTable() {
     return this.state.projects_array.map((res, i) => {
