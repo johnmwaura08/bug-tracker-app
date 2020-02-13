@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 export default class BugsTable extends Component {
     render() {
@@ -12,7 +16,7 @@ export default class BugsTable extends Component {
                 <td>{this.props.obj.deadline}</td>
                 <td>{this.props.obj.bugtype}</td>
                 <td>{this.props.obj.status}</td>
-            
+                <td><FontAwesomeIcon icon ={faEdit} /> <br/> <FontAwesomeIcon icon ={faTrash}/></td>
 
 
 
