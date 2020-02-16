@@ -1,13 +1,42 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-import ProjectsTable from './ProjectsTable'
+import { Link } from 'react-router-dom';
+
+// import ProjectsTable from './ProjectsTable'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+const ProjectsTable = props => (
+             <tr>
+                <td> {props.number + 1}</td>
+                
+                <td>{props.obj.title}</td>
+                <td>{props.obj.frontEnd}</td>
+                <td>{props.obj.backEnd}</td>
+                <td><FontAwesomeIcon icon ={faEdit} /> <br/>
+                {/* <Link to={"/delete/"+props.obj._id}> */}
+                <span onClick={() => {props.deleteProject(props.obj._id) }}>
+                 <FontAwesomeIcon icon ={faTrash} />
+
+                </span>
+                {/* </Link> */}
+                 </td>
+
+                
+                
+            </tr>
+)
+
+
 
 
 export default class ProjectReportstest extends Component {
 
   constructor(props) {
     super(props)
+    this.deleteProject = this.deleteProject.bind(this)
     this.state = {
       projects_array: []
     };
@@ -35,7 +64,7 @@ export default class ProjectReportstest extends Component {
 
   DataTable() {
     return this.state.projects_array.map((res, i) => {
-      return <ProjectsTable obj={res} number={i} key={i} />;
+      return <ProjectsTable obj={res} number={i} deleteProject={this.deleteProject} key={i} />;
     });
   }
 
@@ -49,7 +78,9 @@ export default class ProjectReportstest extends Component {
             <th>TITLE</th>
             <th>FRONT-END:</th>
             <th>BACK-END</th>
+            <th>OPERATION</th>
             <th>ASSIGNED TO:</th>
+
           </tr>
         </thead>
         <tbody>
