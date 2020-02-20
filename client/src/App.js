@@ -1,16 +1,16 @@
 import React from "react";
 
 
-import Projects from "./Components/Projects";
+import Projects from "./Components/ProjectsFolder/Projects";
 import Navbarr from "./Components/Navbarr";
-import Bugs from "./Components/Bugs"
+import Bugs from "./Components/BugsFolder/Bugs"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Users from "./Components/Users";
+import Users from "./Components/UsersFolders/Users";
 import About from "./Components/About";
-import BugReports from"./Components/BugReports";
+import BugReports from"./Components/BugsFolder/BugReports";
 
-import UserReports from "./Components/UserReports";
-import ProjectReportstest from "./Components/ProjectReportstest"
+import UserReports from "./Components/UsersFolders/UserReports";
+import ProjectsReports from "./Components/ProjectsFolder/ProjectsReports"
 function App() {
   return (
     <Router>
@@ -21,7 +21,7 @@ function App() {
           <Route path="/projects/new" component={Projects} />
           <Route path="/bugs/new" component={Bugs} />
           <Route path="/users/new" component={Users} />
-          <Route path ="/projectreports/new" component={ProjectReportstest} />
+          <Route path ="/projectreports/new" component={ProjectsReports} />
           <Route path="/bugreports/new" component ={BugReports} />
           <Route path="/userreports/new" component={UserReports} />
 
