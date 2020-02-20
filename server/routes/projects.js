@@ -78,7 +78,7 @@ router.route('/update/: id').post((req,res)=> {
 });
 
 
-router.route('/: id').delete((req,res)=> {
+router.route('/delete/: id').get((req,res)=> {
   Project.findByIdAndDelete(req.params.id)
       .then(()=> res.json('Project deleted'))
       .catch(err => res.status(400).json('Error: ' + err));
