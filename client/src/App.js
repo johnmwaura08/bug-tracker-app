@@ -11,6 +11,9 @@ import BugReports from"./Components/BugsFolder/BugReports";
 
 import UserReports from "./Components/UsersFolders/UserReports";
 import ProjectsReports from "./Components/ProjectsFolder/ProjectsReports"
+import EditProjects from "./Components/ProjectsFolder/EditProjects";
+//this comment is to test git on new hp laptop
+
 function App() {
   return (
     <Router>
@@ -24,7 +27,7 @@ function App() {
           <Route path ="/projectreports/new" component={ProjectsReports} />
           <Route path="/bugreports/new" component ={BugReports} />
           <Route path="/userreports/new" component={UserReports} />
-
+          <Route path='/editprojects/:id' component={ EditProjects } />
 
         </Switch>
 
