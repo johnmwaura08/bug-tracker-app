@@ -14,6 +14,7 @@ router.route('/').get((req,res)=>{
 
 
 //post bugs to database
+//this is without destructuring 
 
 
 router.route('/add').post((req,res)=>{
