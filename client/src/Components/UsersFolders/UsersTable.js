@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class UsersTable extends Component {
     render() {
-        console.log(this.props.key)
+        
         return (
             <tr>
                 <td> {this.props.number + 1}</td>
